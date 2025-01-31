@@ -1,0 +1,56 @@
+package RWServer;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+public class CreateRobot {
+    public static void createRobot() throws IOException {
+        Robot newBot = getStatsForRobot();
+
+
+        // Serialize the Robot object to JSON
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(newBot);
+
+
+        URL url = new URL("http://localhost:8080/rw/addNewRobot");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setDoOutput(true);
+        connection.setRequestProperty("Content-Type", "application/json");
+
+        // Write the JSON data to the request body
+        try (OutputStream os = connection.getOutputStream()) {
+            byte[] input = json.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+
+        // Get the response from the server
+        int statusCode = connection.getResponseCode();
+        System.out.println("Response Code: " + statusCode);
+    }
+
+
+    public static Robot getStatsForRobot() {
+        Scanner input = new Scanner(System.in);
+        Robot newRobot = new Robot();
+
+        System.out.println("Name: ");
+        newRobot.setName(input.nextLine());
+        System.out.println("AD: ");
+        newRobot.setDamage(input.nextInt());
+        System.out.println("HP: ");
+        newRobot.setHp(input.nextInt());
+        System.out.println("MovementRate: ");
+        newRobot.setMovement(input.nextInt());
+        System.out.println("Range: ");
+        newRobot.setRange(input.nextInt());
+
+        return newRobot;
+    }
+}
