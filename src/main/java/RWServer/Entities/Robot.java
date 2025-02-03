@@ -1,24 +1,25 @@
-package RWServer;
+package RWServer.Entities;
 
+import javax.persistence.*;
+
+@Entity(name = "Robot")
+@Table(name = "Robots")
 public class Robot {
+    @Column(name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
+
+    @Column(name = "name")
     private String name;
+    @Column(name = "range")
     private int range;
+    @Column(name = "movement")
     private int movement;
+    @Column(name = "hp")
     private int hp;
+    @Column(name = "damage")
     private int damage;
-
-    public Robot() {
-    }
-
-    public Robot(String id, String name, int range, int movement, int hp, int damage) {
-        this.id = id;
-        this.name = name;
-        this.range = range;
-        this.movement = movement;
-        this.hp = hp;
-        this.damage = damage;
-    }
 
     public String getId() {
         return id;
@@ -66,5 +67,17 @@ public class Robot {
 
     public void setHp(int hp) {
         this.hp = hp;
+    }
+
+    public Robot() {
+    }
+
+    public Robot(String id, String name, int range, int movement, int hp, int damage) {
+        this.id = id;
+        this.name = name;
+        this.range = range;
+        this.movement = movement;
+        this.hp = hp;
+        this.damage = damage;
     }
 }

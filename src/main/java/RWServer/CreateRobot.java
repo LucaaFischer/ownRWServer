@@ -1,5 +1,6 @@
 package RWServer;
 
+import RWServer.Entities.Robot;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
@@ -13,7 +14,7 @@ public class CreateRobot {
         Robot newBot = getStatsForRobot();
 
 
-        // Serialize the Robot object to JSON
+        // Serialize the RobotEntitiy object to JSON
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(newBot);
 

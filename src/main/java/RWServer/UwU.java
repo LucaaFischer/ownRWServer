@@ -84,18 +84,4 @@ public class UwU<T> {
     public T get(int index) {
         return getValueAtIndex(index);
     }
-
-    /*public static void main(String[] args) {
-        PQueueListGeneric<String> list = new PQueueListGeneric<>();
-        list.pushFront("sdsdsdsdsd");
-        list.pushLast("2134433");
-
-
-        PQueueListGeneric<Long> listLong = new PQueueListGeneric<>();
-        listLong.pushLast(1234L);
-
-        PQueueListGeneric<PQueueListGeneric<Long>> listDtB = new PQueueListGeneric<>();
-
-
-    }*/
 }
