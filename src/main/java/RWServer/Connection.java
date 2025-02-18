@@ -19,8 +19,8 @@ public class Connection {
         }
     }
 
-    public static Session openSession() {
-        return sessionFactory.openSession();
+    public static SessionFactory getSession() {
+        return sessionFactory;
     }
 
     public static void closeSession(Session session) {

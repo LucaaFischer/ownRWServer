@@ -11,19 +11,12 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class CreateRobot {
-    public static Robot createRobot() throws IOException {
-        Session session = Connection.openSession();
-        session.beginTransaction();
-
-        Robot newBot = getStatsForRobot();
-        session.save(newBot);
-        session.getTransaction().commit();
-
-        Connection.closeSession(session);
+    public static void createRobot() throws IOException {
+       // Robot newBot = getStatsForRobot();
 
         //Serialize the RobotEntitiy object to JSON
         ObjectMapper objectMapper = new ObjectMapper();
-        String json = objectMapper.writeValueAsString(newBot);
+       // String json = objectMapper.writeValueAsString(newBot);
 
 
         URL url = new URL("http://localhost:8080/rw/addNewRobot");
@@ -33,15 +26,14 @@ public class CreateRobot {
         connection.setRequestProperty("Content-Type", "application/json");
 
         // Write the JSON data to the request body
-        try (OutputStream os = connection.getOutputStream()) {
-            byte[] input = json.getBytes("utf-8");
-            os.write(input, 0, input.length);
-        }
+        //try (OutputStream os = connection.getOutputStream()) {
+     //       byte[] input = json.getBytes("utf-8");
+       //     os.write(input, 0, input.length);
+        //}
 
         // Get the response from the server
         int statusCode = connection.getResponseCode();
         System.out.println("Response Code: " + statusCode);
-        return newBot;
     }
 
 

@@ -26,8 +26,16 @@ public class RobotService {
     }
 
     @PostMapping("/addNewRobot")
-    public void addNewRobot(@RequestBody Robot robots) {
-        this.robots.pushFront(robots);
+    public void addNewRobot(@RequestBody Robot robot) throws IOException {
+        Session session = Connection.getSession().openSession();
+        session.beginTransaction();
+
+        session.save(robot);
+        session.getTransaction().commit();
+
+        Connection.closeSession(session);
+
+        this.robots.pushFront(robot);
     }
 
     @GetMapping("/pop")
