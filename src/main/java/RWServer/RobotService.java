@@ -1,5 +1,7 @@
 package RWServer;
 
+import RWServer.Entities.Robot;
+import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
@@ -7,9 +9,10 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/rw")
 public class RobotService {
-    public RobotService() {
-        robots.pushFront(new Robot("1", "UwU", 1, 1, 1, 1));
-        robots.pushFront(new Robot("2", "Kuca", 2, 2, 2, 2));
+    public RobotService() throws IOException {
+        //robots.pushFront(new Robot("UwU", 1, 1, 1, 1));
+        //robots.pushFront(new Robot("Kuca", 2, 2, 2, 2));
+        //robots.pushFront(CreateRobot.createRobot());
     }
 
     UwU<Robot> robots = new UwU<>();
@@ -18,6 +21,8 @@ public class RobotService {
     @GetMapping("/createRobot")
     public void createRobot() throws IOException {
         CreateRobot.createRobot();
+
+
     }
 
     @PostMapping("/addNewRobot")

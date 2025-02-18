@@ -5,17 +5,11 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name="hibernate.connection.url">jdbc:sqlite:C:\Users\lucaf\Desktop\RobotWarsDB\RobotWars.db</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:C:/Users/lucaf/Desktop/RobotWarsDB/RobotWars.db</property>
         <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
-        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">False</property>
+        <property name="hibernate.connection.autocommit">true</property>
         <mapping class="RWServer.Entities.Robot"/>
-        <mapping class="RWServer.Entities.RWMap"/>
-        <mapping class="RWServer.Entities.MapItem"/>
-        <mapping class="RWServer.Entities.MapItemType"/>
-        <mapping class="RWServer.Entities.Game"/>
-        <mapping class="RWServer.Entities.JoinGame"/>
-        <mapping class="RWServer.Entities.Moves"/>
-        <mapping class="RWServer.Entities.MovementType"/>
-    </session-factory>
+     </session-factory>
 </hibernate-configuration>

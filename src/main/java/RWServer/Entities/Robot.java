@@ -1,25 +1,39 @@
 package RWServer.Entities;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.*;
 
-@Entity(name = "Robot")
+@Entity
 @Table(name = "Robots")
 public class Robot {
-    @Column(name = "id")
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID",strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(name = "ID", unique = true, nullable = false)
     private String id;
-
-    @Column(name = "name")
+    @Column(name = "Name")
     private String name;
-    @Column(name = "range")
+    @Column(name = "RANGE")
     private int range;
-    @Column(name = "movement")
+    @Column(name = "MOVEMENT")
     private int movement;
-    @Column(name = "hp")
+    @Column(name = "HP")
     private int hp;
-    @Column(name = "damage")
+    @Column(name = "AD")
     private int damage;
+
+    public Robot() {
+    }
+
+    public Robot(String id, String name, int range, int movement, int hp, int damage) {
+        this.id = id;
+        this.name = name;
+        this.range = range;
+        this.movement = movement;
+        this.hp = hp;
+        this.damage = damage;
+    }
 
     public String getId() {
         return id;
@@ -55,7 +69,7 @@ public class Robot {
 
     public int getMovement() {
         return movement;
-    }
+   }
 
     public void setMovement(int movement) {
         this.movement = movement;
@@ -67,17 +81,5 @@ public class Robot {
 
     public void setHp(int hp) {
         this.hp = hp;
-    }
-
-    public Robot() {
-    }
-
-    public Robot(String id, String name, int range, int movement, int hp, int damage) {
-        this.id = id;
-        this.name = name;
-        this.range = range;
-        this.movement = movement;
-        this.hp = hp;
-        this.damage = damage;
     }
 }

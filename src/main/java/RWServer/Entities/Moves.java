@@ -4,8 +4,6 @@ import jakarta.persistence.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity(name = "Move")
 @Table(name = "move")

@@ -27,7 +27,12 @@
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-community-dialects</artifactId>
-            <version>6.2.0.Final</version> <!-- Use latest version -->
+            <version>6.2.7.Final</version> <!-- Use latest version -->
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.2.7.Final</version> <!-- Aktuelle Version prüfen -->
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>

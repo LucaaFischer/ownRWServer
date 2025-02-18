@@ -2,6 +2,7 @@ package RWServer;
 
 import RWServer.Entities.Robot;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hibernate.Session;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -10,11 +11,17 @@ import java.net.URL;
 import java.util.Scanner;
 
 public class CreateRobot {
-    public static void createRobot() throws IOException {
+    public static Robot createRobot() throws IOException {
+        Session session = Connection.openSession();
+        session.beginTransaction();
+
         Robot newBot = getStatsForRobot();
+        session.save(newBot);
+        session.getTransaction().commit();
 
+        Connection.closeSession(session);
 
-        // Serialize the RobotEntitiy object to JSON
+        //Serialize the RobotEntitiy object to JSON
         ObjectMapper objectMapper = new ObjectMapper();
         String json = objectMapper.writeValueAsString(newBot);
 
@@ -34,6 +41,7 @@ public class CreateRobot {
         // Get the response from the server
         int statusCode = connection.getResponseCode();
         System.out.println("Response Code: " + statusCode);
+        return newBot;
     }
 
 
