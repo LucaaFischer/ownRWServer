@@ -2,9 +2,6 @@ package RWServer.Entities;
 
 import jakarta.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
 @Entity(name = "Move")
 @Table(name = "move")
 public class Moves {

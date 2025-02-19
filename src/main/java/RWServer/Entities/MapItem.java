@@ -1,6 +1,6 @@
 package RWServer.Entities;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity(name = "MapItem")
 @Table(name = "map_item")

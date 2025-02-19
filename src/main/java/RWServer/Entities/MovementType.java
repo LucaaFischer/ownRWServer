@@ -1,8 +1,6 @@
 package RWServer.Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity(name = "MovementType")
 @Table(name = "MovementType")

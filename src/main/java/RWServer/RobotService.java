@@ -5,12 +5,13 @@ import org.hibernate.Session;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rw")
 public class RobotService {
     public RobotService() throws IOException {
-        //robots.pushFront(new Robot("UwU", 1, 1, 1, 1));
+        robots.pushFront(new Robot("1", "UwU", 1, 1, 1, 1));
         //robots.pushFront(new Robot("Kuca", 2, 2, 2, 2));
         //robots.pushFront(CreateRobot.createRobot());
     }
@@ -54,8 +55,9 @@ public class RobotService {
     }
 
     @GetMapping("/robots")
-    public UwU<Robot> seeAllRobots() {
-        return robots;
+    public List<Robot> seeAllRobots() {
+        Session session = Connection.getSession().openSession();
+        return session.createQuery("from Robot ", Robot.class).getResultList();
     }
 
     @GetMapping("/robots/robot/{id}/")
