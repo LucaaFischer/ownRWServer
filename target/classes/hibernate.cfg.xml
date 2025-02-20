@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.sqlite.JDBC</property>
-        <property name="hibernate.connection.url">jdbc:sqlite:C:\Users\LUFISCHE\IdeaProjects\OwnRWServer\src\main\resources/RobotWars.db</property>
+        <property name="hibernate.connection.url">jdbc:sqlite:src/main/resources/RobotWars.db</property>
         <property name="hibernate.dialect">org.hibernate.community.dialect.SQLiteDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.show_sql">False</property>

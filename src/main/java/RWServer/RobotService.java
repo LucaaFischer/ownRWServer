@@ -11,9 +11,6 @@ import java.util.List;
 @RequestMapping("/rw")
 public class RobotService {
     public RobotService() throws IOException {
-        robots.pushFront(new Robot("1", "UwU", 1, 1, 1, 1));
-        //robots.pushFront(new Robot("Kuca", 2, 2, 2, 2));
-        //robots.pushFront(CreateRobot.createRobot());
     }
 
     UwU<Robot> robots = new UwU<>();
@@ -22,8 +19,6 @@ public class RobotService {
     @GetMapping("/createRobot")
     public void createRobot() throws IOException {
         CreateRobot.createRobot();
-
-
     }
 
     @PostMapping("/addNewRobot")
@@ -35,23 +30,6 @@ public class RobotService {
         session.getTransaction().commit();
 
         Connection.closeSession(session);
-
-        this.robots.pushFront(robot);
-    }
-
-    @GetMapping("/pop")
-    public Robot removeFirstItem(@RequestParam(name = "front", defaultValue = "true") boolean fromFront) {
-        if (fromFront) {
-            return robots.popFront();
-        } else {
-            System.out.println("UwU");
-            return robots.popLast();
-        }
-    }
-
-    @GetMapping("/seek")
-    public Robot getFirstItem() {
-        return robots.get(0);
     }
 
     @GetMapping("/robots")
@@ -60,14 +38,11 @@ public class RobotService {
         return session.createQuery("from Robot ", Robot.class).getResultList();
     }
 
-    @GetMapping("/robots/robot/{id}/")
-    public Robot seeSpecificRobot(@PathVariable(value = "id") int id) {
-        return robots.get(id);
-    }
-
-    @GetMapping
-    public String sayUwU() {
-        return "UwU";
+    @GetMapping("/robots/robot/{id}")
+    public Robot seeSpecificRobot(@PathVariable(value = "id") String uid) {
+        Session session = Connection.getSession().openSession();
+        System.out.println(uid);
+        return session.createQuery("from Robot r where r.id = :id", Robot.class).setParameter("id", uid).getSingleResult();
     }
 }
 
