@@ -36,7 +36,3 @@ jobs:
 
       - name: Build Java Application
         run: ./mvnw package --file pom.xml --quiet
-
-      - name: Build Docker Image
-        run: |
-          docker build -t robotwarsimage -f src/main/resources/Dockerfile .
