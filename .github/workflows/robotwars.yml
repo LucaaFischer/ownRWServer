@@ -39,4 +39,4 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t robotwarsimage .
+          docker build -t robotwarsimage -f src/main/resources/Dockerfile
