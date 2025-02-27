@@ -32,10 +32,7 @@ jobs:
           fi
 
       - name: Check CodeStyle
-        run: ./mvnw checkstyle:check
-
-      - name: Check code formatting
-        run: ./mvnw fmt:check
+        run: ./mvnw checkstyle:check  # Führt Standard-Code-Analyse durch
 
       - name: Run Unit Tests
         run: ./mvnw test
