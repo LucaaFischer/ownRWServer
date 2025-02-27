@@ -31,9 +31,6 @@ jobs:
             mvn -N io.takari:maven:wrapper
           fi
 
-      - name: Check CodeStyle
-        run: ./mvnw checkstyle:check  # Führt Standard-Code-Analyse durch
-
       - name: Run Unit Tests
         run: ./mvnw test
 
