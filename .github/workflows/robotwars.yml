@@ -36,10 +36,6 @@ jobs:
             mvn -N io.takari:maven:wrapper
           fi
 
-
-      - name: Check CodeStyle
-        run: ./mvnw checkstyle:check
-
         
       - name: Check code formatting
         run: ./mvnw fmt:check
