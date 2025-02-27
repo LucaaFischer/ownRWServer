@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout_code
         uses: actions/checkout@v2
 
       - name: Set up JDK 23.0.2
