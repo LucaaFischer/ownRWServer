@@ -21,9 +21,17 @@ jobs:
         with:
           java-version: '23'
           distribution: 'temurin'
+
+      - name: Install Maven
+        run: sudo apt-get install maven
+
+      - name: Create Maven Wrapper if not exists
+        run: mvn -N io.takari:maven:wrapper
+        if: !exists('./mvnw')
+
       - name: Check CodeStyle
         run: ./mvnw checkstyle:check
-
+        
       - name: Check code formatting
         run: ./mvnw fmt:check
 
@@ -36,4 +44,3 @@ jobs:
       - name: Build Docker Image
         run: |
           docker build -t robotwarsimage .
-      
