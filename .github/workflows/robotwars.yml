@@ -31,8 +31,10 @@ jobs:
 
 
       - name: Create Maven Wrapper if not exists
-        run: mvn -N io.takari:maven:wrapper
-        if: !exists('./mvnw')
+        run: |
+          if [ ! -f "./mvnw" ]; then
+            mvn -N io.takari:maven:wrapper
+          fi
 
 
       - name: Check CodeStyle
