@@ -38,4 +38,4 @@ jobs:
         run: ./mvnw package --file pom.xml --quiet
 
       - name: Build Docker Image
-        run: docker build -t robotwarsimage -f src/main/resources/Dockerfile .
+        run: DOCKER_BUILDKIT=0 docker build -t robotwarsimage -f src/main/resources/Dockerfile .
