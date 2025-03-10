@@ -2,6 +2,8 @@ FROM openjdk:23-bookworm
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y docker.io
+
 RUN apt-get update && apt-get install -y maven
 RUN mvn clean package
 
