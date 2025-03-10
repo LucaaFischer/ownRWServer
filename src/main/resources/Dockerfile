@@ -6,7 +6,7 @@ RUN apt-get update && apt-get install -y docker.io
 
 RUN apt-get update && apt-get install -y maven
 
-COPY resources/OwnRWServer.jar /app/OwnRWServer.jar
+COPY OwnRWServer.jar /app/OwnRWServer.jar
 
 EXPOSE 8080
 
