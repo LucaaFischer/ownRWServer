@@ -1,68 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
 
 .container:not(.main) {
-  margin-top: 0;
+    margin-top: 0;
     display: flex;
-    font-family: 'Oxanium';
+    font-family: 'Oxanium', serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+}
 
-  .main {
+.main {
     position: absolute;
     top: 0;
     left: auto;
     opacity: 100%;
-  }
-  
-  .action {
-    margin: 10px;
-  }
+}
 
-  .mainheading {
+.action {
+    margin: 10px;
+}
+
+.mainheading {
     font-size: 100px;
     margin-bottom: 50px;
     margin-left: 140px;
-  }
+}
 
-  .subheading {
+.subheading {
     width: 360px;
     font-size: 50px;
     margin-left: 210px;
     font-style: italic;
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
-  }
+}
 
-  li {
+li {
     list-style: none;
     padding: 10px;
-  }
+}
 
-  #backgroundImage {
+#backgroundImage {
     opacity: 40%;
     position: relative;
     margin-top: 0;
-  }
+}
 
-  #menu {
+#menu {
     list-style-type: none;
     text-decoration: none;
     padding-bottom: 40px;
     align-items: center;
     margin-left: 100px;
-  }
+}
 
-  #select {
-    font-family: 'Oxanium';
+button[name="select"] {
+    font-family: 'Oxanium', serif;
     font-weight: bolder;
     font-size: xx-large;
     text-align: center;
     width: 450px;
     height: 50px;
-    background-color:cornflowerblue;
+    background-color: cornflowerblue;
     border-color: darkblue;
     border-radius: 40%;
     cursor: pointer;
-  }
+}
