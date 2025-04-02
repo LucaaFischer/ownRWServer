@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/rw")
+@CrossOrigin("*")
 public class RobotService {
     @GetMapping("/createRobot")
     public void createRobot() throws IOException {
@@ -26,7 +27,7 @@ public class RobotService {
         Connection.closeSession(session);
     }
 
-    @GetMapping("/robots")
+    @GetMapping("/getRobots")
     public List<Robot> seeAllRobots() {
         Session session = Connection.getSession().openSession();
         return session.createQuery("from Robot ", Robot.class).getResultList();
