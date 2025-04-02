@@ -11,5 +11,6 @@
         <property name="hibernate.show_sql">False</property>
         <property name="hibernate.connection.autocommit">true</property>
         <mapping class="RWServer.Entities.Robot"/>
+        <mapping class="RWServer.Entities.RWMap"/>
      </session-factory>
 </hibernate-configuration>
